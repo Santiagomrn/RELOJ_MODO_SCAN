@@ -73,7 +73,7 @@ int programarHora(int current){
 							break;
 						}
 				while(!(GPIO_PORTJ_DATA_R & 0x02) ){ // Presion bot?n 4
-					current += 3600; // resta tiene error 85 hrs TIMER0_TAIL_R
+					current -= 3600; // resta tiene error 85 hrs TIMER0_TAIL_R
 					//current = TIMER0_TAILR_R;
 					day = ( current / 86400);
 					temp = ( current % 86400);
@@ -81,7 +81,9 @@ int programarHora(int current){
 					temp = temp % 3600;
 					min = temp / 60;
 					seg = temp % 60; // [00:00:12] -> [86:27:12]
-					
+					if(hour == 0){ 
+						current += 3600*24;
+					}
 					limpiar_horas();
 					for(uint32_t n=0;n<Time;n++){}
 					mostrar_horas(hour);
