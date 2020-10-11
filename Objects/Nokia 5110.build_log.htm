@@ -3,32 +3,30 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.28.0.0
-Copyright (C) 2019 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Santiago Rodriguez, FMAT, LIC=----
+IDE-Version: µVision V5.31.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Alejandro Garcia, UADY, LIC=----
  
 Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.28.0.0
+Toolchain:       MDK-Lite  Version: 5.31.0.0
 Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 6 (build 750)
 Assembler:       Armasm.exe V5.06 update 6 (build 750)
 Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
 Library Manager: ArmAr.exe V5.06 update 6 (build 750)
 Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
-CPU DLL:         SARMCM3.DLL V5.28.0.0
+CPU DLL:         SARMCM3.DLL V5.31.0.0
 Dialog DLL:      DCM.DLL V1.17.3.0
 Target DLL:      lmidk-agdi.dll V???
-Dialog DLL:      TCM.DLL V1.36.2.0
+Dialog DLL:      TCM.DLL V1.46.0.0
  
 <h2>Project:</h2>
-C:\Users\santi\Desktop\9 sem\STR\Nokia 5110\Nokia 5110.uvprojx
-Project File Date:  10/10/2020
+C:\Users\a_gar\OneDrive\Escritorio\STR\RTCSCAN\RELOJ_MODO_SCAN_TM4C1294NCPDT\Nokia 5110.uvprojx
+Project File Date:  10/11/2020
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Rebuild target 'Target 1'
-assembling startup_TM4C129.s...
-compiling system_TM4C129.c...
+Build target 'Target 1'
 compiling main.c...
 Nokia5110.c(172): warning:  #188-D: enumerated type mixed with another type
       lcdwrite(DC_DATA, my_array[index]);
@@ -48,42 +46,48 @@ portJ.c(25): warning:  #1-D: last line of file ends without a newline
   }
 portN.c(25): warning:  #1-D: last line of file ends without a newline
   }
-main.c(6): warning:  #550-D: variable "day"  was set but never used
+main.c(8): warning:  #550-D: variable "day"  was set but never used
   		uint32_t day = 0, temp = 0;
-main.c(71): warning:  #1-D: last line of file ends without a newline
+main.c(82): warning:  #177-D: variable "salirProgramacion"  was declared but never referenced
+  			int salirProgramacion = 0;
+main.c(85): warning:  #111-D: statement is unreachable
+  		return current ;
+main.c(48): warning:  #550-D: variable "day"  was set but never used
+  		uint32_t day = 0, temp = 0;
+main.c(136): warning:  #1-D: last line of file ends without a newline
   }
-main.c(39): warning:  #177-D: variable "hour"  was declared but never referenced
+main.c(98): warning:  #177-D: variable "hour"  was declared but never referenced
   	uint8_t hour = 0, min = 0, seg = 0, lastHour = 0, lastMin = 0, lastSeg = 0;
-main.c(39): warning:  #177-D: variable "min"  was declared but never referenced
+main.c(98): warning:  #177-D: variable "min"  was declared but never referenced
   	uint8_t hour = 0, min = 0, seg = 0, lastHour = 0, lastMin = 0, lastSeg = 0;
-main.c(39): warning:  #177-D: variable "seg"  was declared but never referenced
+main.c(98): warning:  #177-D: variable "seg"  was declared but never referenced
   	uint8_t hour = 0, min = 0, seg = 0, lastHour = 0, lastMin = 0, lastSeg = 0;
-main.c(39): warning:  #177-D: variable "lastHour"  was declared but never referenced
+main.c(98): warning:  #177-D: variable "lastHour"  was declared but never referenced
   	uint8_t hour = 0, min = 0, seg = 0, lastHour = 0, lastMin = 0, lastSeg = 0;
-main.c(39): warning:  #177-D: variable "lastMin"  was declared but never referenced
+main.c(98): warning:  #177-D: variable "lastMin"  was declared but never referenced
   	uint8_t hour = 0, min = 0, seg = 0, lastHour = 0, lastMin = 0, lastSeg = 0;
-main.c(39): warning:  #177-D: variable "lastSeg"  was declared but never referenced
+main.c(98): warning:  #177-D: variable "lastSeg"  was declared but never referenced
   	uint8_t hour = 0, min = 0, seg = 0, lastHour = 0, lastMin = 0, lastSeg = 0;
-main.c(40): warning:  #177-D: variable "day"  was declared but never referenced
+main.c(99): warning:  #177-D: variable "day"  was declared but never referenced
   	uint32_t day = 0, temp = 0, LastTIMER0_TAR_R = 0;
-main.c(40): warning:  #177-D: variable "temp"  was declared but never referenced
+main.c(99): warning:  #177-D: variable "temp"  was declared but never referenced
   	uint32_t day = 0, temp = 0, LastTIMER0_TAR_R = 0;
-main.c(40): warning:  #177-D: variable "LastTIMER0_TAR_R"  was declared but never referenced
+main.c(99): warning:  #177-D: variable "LastTIMER0_TAR_R"  was declared but never referenced
   	uint32_t day = 0, temp = 0, LastTIMER0_TAR_R = 0;
-main.c(41): warning:  #177-D: variable "current"  was declared but never referenced
+main.c(100): warning:  #177-D: variable "current"  was declared but never referenced
   	int current; //HORA ACTUAL
-main.c: 21 warnings, 0 errors
+main.c: 24 warnings, 0 errors
 linking...
-Program Size: Code=2220 RO-data=1528 RW-data=4 ZI-data=612  
-".\Objects\Nokia 5110.axf" - 0 Error(s), 21 Warning(s).
+Program Size: Code=2840 RO-data=1528 RW-data=4 ZI-data=612  
+".\Objects\Nokia 5110.axf" - 0 Error(s), 24 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.5.5.1.pack
-                ARM.CMSIS.5.5.1
+                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
+                ARM.CMSIS.5.7.0
                 CMSIS (Cortex Microcontroller Software Interface Standard)
-   * Component: CORE Version: 5.2.0
+   * Component: CORE Version: 5.4.0
 
 Package Vendor: Keil
                 http://www.keil.com/pack/Keil.TM4C_DFP.1.1.0.pack
@@ -93,17 +97,17 @@ Package Vendor: Keil
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_Target_1
-  C:\Users\santi\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include
-  C:\Users\santi\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C129
+  C:\Users\a_gar\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  C:\Users\a_gar\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C129
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:5.2.0
+   * Component: ARM::CMSIS:CORE:5.4.0
 
    * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device\Source\system_TM4C129.c
-      Source file:   Device\Source\ARM\startup_TM4C129.s
       Include file:  Device\Include\TM4C129\TM4C129.h
+      Source file:   Device\Source\ARM\startup_TM4C129.s
+      Source file:   Device\Source\system_TM4C129.c
 Build Time Elapsed:  00:00:02
 </pre>
 </body>

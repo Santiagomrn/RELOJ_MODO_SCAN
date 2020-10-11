@@ -1305,13 +1305,14 @@ ARM Macro Assembler    Page 21
 
 
               00000000 
-Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
-erwork --depend=.\objects\startup_tm4c129.d -o.\objects\startup_tm4c129.o -I.\R
-TE\_Target_1 -IC:\Users\santi\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Cor
-e\Include -IC:\Users\santi\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\I
-nclude\TM4C129 --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 
-528" --predefine="_RTE_ SETA 1" --predefine="TM4C1294NCPDT SETA 1" --list=.\lis
-tings\startup_tm4c129.lst RTE\Device\TM4C1294NCPDT\startup_TM4C129.s
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=
+interwork --depend=.\objects\startup_tm4c129.d -o.\objects\startup_tm4c129.o -I
+.\RTE\_Target_1 -IC:\Users\a_gar\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\
+Core\Include -IC:\Users\a_gar\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Devic
+e\Include\TM4C129 --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SE
+TA 531" --predefine="_RTE_ SETA 1" --predefine="TM4C1294NCPDT SETA 1" --predefi
+ne="_RTE_ SETA 1" --list=.\listings\startup_tm4c129.lst RTE\Device\TM4C1294NCPD
+T\startup_TM4C129.s
 
 
 

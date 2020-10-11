@@ -5,3 +5,4 @@
 .\objects\main.o: tm4c1294ncpdt.h
 .\objects\main.o: portJ.c
 .\objects\main.o: portN.c
+.\objects\main.o: modoProgramacion.c

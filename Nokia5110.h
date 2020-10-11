@@ -26,7 +26,8 @@
  OR CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
  For more information about my classes, my research, and my books, see
  http://users.ece.utexas.edu/~valvano/
- */
+
+*/
 //**************************************************************** TM4C123
 // 			Señal  												(Nokia 5110)							4C1293 
 //			RESET 											( RST, PIN 1 )						Conectar a PA7		OK
