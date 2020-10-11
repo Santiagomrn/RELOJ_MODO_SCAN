@@ -2,7 +2,8 @@
 #include "portJ.c"
 #include "portN.c"
 #include "modoProgramacion.c"
-#define Time 950000
+#define Time 520000 // 950000 
+#define Time2 120000 // 950000 
 void mostrar_hora_min_seg(int tiempo){
 		uint8_t hour = 0, min = 0, seg = 0;
 		uint32_t day = 0, temp = 0;
@@ -53,36 +54,84 @@ int programarHora(int current){
 				temp = temp % 3600;
 				min = temp / 60;
 				seg = temp % 60;	
-		int botonAumentarHora  = GPIO_PORTJ_DATA_R & 0x02;
+		 //int botonAumentarHora  = GPIO_PORTJ_DATA_R & 0x02;
 		//int botonProgramarHora = GPIO_PORTJ_DATA_R & 0x01;
 		while(1){
+			int selector = 0;
 			int botonAumentarHora  = GPIO_PORTJ_DATA_R & 0x02; // botón 3
-			int botonProgramarHora = GPIO_PORTJ_DATA_R & 0x01;
-			if(botonAumentarHora){ // Presion bot?n 4
-				current = current - 1; // resta tiene error 85 hrs
-				day = ( current / 86400);
-				temp = ( current % 86400);
-				hour = temp / 3600;
-				temp = temp % 3600;
-				min = temp / 60;
-				seg = temp % 60; // [00:00:12] -> [86:27:12]
-				
-				//for(uint32_t n=0;n<Time;n++){}
-				limpiar_minutos();
-				for(uint32_t n=0;n<Time;n++){}
-				mostrar_minutos(min);
-				for(uint32_t n=0;n<Time;n++){}
-				mostrar_horas(hour);
-				mostrar_minutos(min);
-				mostrar_segundos(seg);
+			int selectorTiempo = GPIO_PORTJ_DATA_R & 0x01;
+			if(selector == 0){
+					limpiar_horas();
+					for(uint32_t n=0;n<Time;n++){}
+					mostrar_horas(hour);
+					for(uint32_t n=0;n<Time;n++){}
+					mostrar_minutos(min);
+					mostrar_segundos(seg);
+						if(!(GPIO_PORTJ_DATA_R & 0x01)){
+							selector = 1;
+							for(uint32_t n=0;n<Time2;n++){}
+							break;
+						}
+				while(!(GPIO_PORTJ_DATA_R & 0x02) ){ // Presion bot?n 4
+					current += 3600; // resta tiene error 85 hrs TIMER0_TAIL_R
+					//current = TIMER0_TAILR_R;
+					day = ( current / 86400);
+					temp = ( current % 86400);
+					hour = temp / 3600;
+					temp = temp % 3600;
+					min = temp / 60;
+					seg = temp % 60; // [00:00:12] -> [86:27:12]
 					
-			}
-			//if(){} boton programacion
-			//break;
-			int salirProgramacion = 0;
-
+					limpiar_horas();
+					for(uint32_t n=0;n<Time;n++){}
+					mostrar_horas(hour);
+					for(uint32_t n=0;n<Time;n++){}
+					mostrar_minutos(min);
+					mostrar_segundos(seg);
+						
+				}
 		}
-		return current ;
+//			for(uint32_t n=0;n<Time;n++){}
+//			if(selector==1){
+//					limpiar_minutos();
+//					for(uint32_t n=0;n<Time;n++){}
+//					mostrar_minutos(min);
+//					for(uint32_t n=0;n<Time;n++){}
+//					mostrar_horas(hour);
+//					mostrar_segundos(seg);
+//						if( !(GPIO_PORTJ_DATA_R & 0x01)){
+//							selector = 1;
+//							for(uint32_t n=0;n<Time2;n++){}
+//							break;
+//						}
+//				if(!botonAumentarHora){ // Presion bot?n 4
+//					TIMER0_TAILR_R = current + 60; // resta tiene error 85 hrs TIMER0_TAIL_R
+//					
+//					current = TIMER0_TAILR_R;
+//					day = ( current / 86400);
+//					temp = ( current % 86400);
+//					hour = temp / 3600;
+//					temp = temp % 3600;
+//					min = temp / 60;
+//					seg = temp % 60; // [00:00:12] -> [86:27:12]
+//					
+//					limpiar_minutos();
+//					for(uint32_t n=0;n<Time;n++){}
+//					mostrar_minutos(min);
+//					for(uint32_t n=0;n<Time;n++){}
+//					mostrar_horas(hour);
+//					mostrar_segundos(seg);
+//						
+//				}
+//		}
+//			//
+			//if(){} boton programacion
+			//int salirProgramacion = 0;
+			if(!(GPIO_PORTD_DATA_R&0x02)){
+				break;
+			}
+		}
+		return (current) ;
 }
 
 int main(){
@@ -105,7 +154,8 @@ int main(){
 	uint8_t button_programer_mode=0;
 	uint8_t flag=0;
 	LcdClear(); //limpia LCD
-	horaModificada = horaModificada + 60*5;
+	//horaModificada = horaModificada + 60*1;
+	TIMER0_TAILR_R =  3600*23;
 	while(1){
 				init_Delay(250);
 				horaActual  =  TIMER0_TAR_R + horaModificada;

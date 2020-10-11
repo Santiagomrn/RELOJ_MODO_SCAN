@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Nokia 5110.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Nokia 5110.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Oct 11 12:46:39 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Oct 11 18:23:30 2020
 <BR><P>
 <H3>Maximum Stack Usage =        112 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1399,7 +1399,7 @@ Global Symbols
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mostrar_minutos
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mostrar_horas
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mostrar_hora_t
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;limpiar_minutos
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;limpiar_horas
 </UL>
 
 <P><STRONG><a name="[ac]"></a>PortN_Output</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, main.o(i.PortN_Output))
@@ -1437,8 +1437,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a2]"></a>limpiar_minutos</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, main.o(i.limpiar_minutos))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = limpiar_minutos &rArr; Nokia5110_OutString &rArr; Nokia5110_OutChar
+<P><STRONG><a name="[a2]"></a>limpiar_horas</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, main.o(i.limpiar_horas))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = limpiar_horas &rArr; Nokia5110_OutString &rArr; Nokia5110_OutChar
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Nokia5110_OutString
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcdwrite
@@ -1446,7 +1446,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;programarHora
 </UL>
 
-<P><STRONG><a name="[95]"></a>main</STRONG> (Thumb, 138 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[95]"></a>main</STRONG> (Thumb, 180 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = main &rArr; mostrar_hora_min_seg &rArr; mostrar_hora_t &rArr; Nokia5110_OutString &rArr; Nokia5110_OutChar
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wait_end_Delay
@@ -1512,13 +1512,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;programarHora
 </UL>
 
-<P><STRONG><a name="[ad]"></a>programarHora</STRONG> (Thumb, 228 bytes, Stack size 0 bytes, main.o(i.programarHora))
-<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = programarHora &rArr; mostrar_segundos &rArr; Nokia5110_OutString &rArr; Nokia5110_OutChar
+<P><STRONG><a name="[ad]"></a>programarHora</STRONG> (Thumb, 340 bytes, Stack size 40 bytes, main.o(i.programarHora))
+<BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = programarHora &rArr; mostrar_segundos &rArr; Nokia5110_OutString &rArr; Nokia5110_OutChar
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mostrar_segundos
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mostrar_minutos
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mostrar_horas
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;limpiar_minutos
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;limpiar_horas
 </UL>
 <BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1543,7 +1543,7 @@ Local Symbols
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mostrar_minutos
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mostrar_horas
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mostrar_hora_t
-<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;limpiar_minutos
+<LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;limpiar_horas
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Nokia5110_OutChar
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Nokia5110_Init
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LcdClear
