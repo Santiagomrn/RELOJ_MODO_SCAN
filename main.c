@@ -2,8 +2,7 @@
 #include "portJ.c"
 #include "portN.c"
 #include "modoProgramacion.c"
-#define Time 520000 // 950000 
-#define Time2 120000 // 950000 
+#define Time 950000
 void mostrar_hora_min_seg(int tiempo){
 		uint8_t hour = 0, min = 0, seg = 0;
 		uint32_t day = 0, temp = 0;
@@ -55,10 +54,15 @@ int programarHora(int current){
 				temp = temp % 3600;
 				min = temp / 60;
 				seg = temp % 60;	
+<<<<<<< HEAD
 	
+=======
+		int botonAumentarHora  = GPIO_PORTJ_DATA_R & 0x02;
+		//int botonProgramarHora = GPIO_PORTJ_DATA_R & 0x01;
+>>>>>>> parent of a31449e... Modo programacion
 		while(1){
-			int selector = 0;
 			int botonAumentarHora  = GPIO_PORTJ_DATA_R & 0x02; // botón 3
+<<<<<<< HEAD
 			int selectorTiempo = GPIO_PORTJ_DATA_R & 0x01;			// botón 2 [TIVA-BOTON1]
 			while(selector == 0){
 					limpiar_horas();
@@ -133,10 +137,39 @@ int programarHora(int current){
 		}
 			if(!(GPIO_PORTD_DATA_R&0x02)){ // Botón programación
 				break;
+=======
+			int botonProgramarHora = GPIO_PORTJ_DATA_R & 0x01;
+			if(botonAumentarHora){ // Presion bot?n 4
+				current = current - 1; // resta tiene error 85 hrs
+				day = ( current / 86400);
+				temp = ( current % 86400);
+				hour = temp / 3600;
+				temp = temp % 3600;
+				min = temp / 60;
+				seg = temp % 60; // [00:00:12] -> [86:27:12]
+				
+				//for(uint32_t n=0;n<Time;n++){}
+				limpiar_minutos();
+				for(uint32_t n=0;n<Time;n++){}
+				mostrar_minutos(min);
+				for(uint32_t n=0;n<Time;n++){}
+				mostrar_horas(hour);
+				mostrar_minutos(min);
+				mostrar_segundos(seg);
+					
+>>>>>>> parent of a31449e... Modo programacion
 			}
+			//if(){} boton programacion
+			//break;
+			int salirProgramacion = 0;
+
 		}
+<<<<<<< HEAD
 		// regresar valor actual
 	return (current) ;
+=======
+		return current ;
+>>>>>>> parent of a31449e... Modo programacion
 }
 
 int main(){
@@ -159,8 +192,12 @@ int main(){
 	uint8_t button_programer_mode=0;
 	uint8_t flag=0;
 	LcdClear(); //limpia LCD
+<<<<<<< HEAD
 	//horaModificada = horaModificada + 60*1;
 	TIMER0_TAILR_R =  3600*23 + 60*59 + 59;
+=======
+	horaModificada = horaModificada + 60*5;
+>>>>>>> parent of a31449e... Modo programacion
 	while(1){
 				init_Delay(250);
 				int horaActual  =  TIMER0_TAR_R + horaModificada;
