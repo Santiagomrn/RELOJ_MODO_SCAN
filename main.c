@@ -20,6 +20,7 @@ void mostrar_hora_min_seg(int tiempo){
 
 void init_Delay(uint32_t tiempo){
 	tiempo=(16000*tiempo);
+	NVIC_ST_CTRL_R&=~NVIC_ST_CTRL_ENABLE;//apaga el Systick
 	// NVIC_ST_CTRL_R = 0x00; // Se establece con 4 Mhz
 	NVIC_ST_CURRENT_R=0X0000;//asignar el valor actual en 0
 	NVIC_ST_RELOAD_R=tiempo; //valor desde la cuenta
@@ -44,16 +45,22 @@ void initPortD(void){
 	//GPIO_PORTD_PUR_R|=0X01;
 }
 int programarHora(int current){
+	//variables de timempo
 		uint8_t hour = 0, min = 0, seg = 0;
 		uint32_t day = 0, temp = 0;
+<<<<<<< HEAD
 		int horasModificadas=0, minutosModificados=0, segundoModificados = 0 ;
 		TIMER0_CTL_R &= ~TIMER_CTL_TAEN; //Apaga el timer
+=======
+		
+>>>>>>> Configuracion
 				day = ( current / 86400);
 				temp = ( current % 86400);
 				hour = temp / 3600;
 				temp = temp % 3600;
 				min = temp / 60;
 				seg = temp % 60;	
+<<<<<<< HEAD
 		int botonAumentarHora  = GPIO_PORTJ_DATA_R & 0x02;
 		//int botonProgramarHora = GPIO_PORTJ_DATA_R & 0x01;
 		while(1){
@@ -77,6 +84,39 @@ int programarHora(int current){
 				mostrar_minutos(min);
 				mostrar_segundos(seg);
 					
+=======
+///////////////////////////////////////////////////////////////////
+		while(1){
+			int selector = 0;
+			int botonAumentar  = GPIO_PORTJ_DATA_R & 0x02; // bot�n 3
+		//int selectorTiempo = GPIO_PORTJ_DATA_R & 0x01; //boton 2
+			
+			if(selector == 0){
+					limpiar_horas();//limpia las horas en pantalla
+					init_Delay(100);//inicia el sistick	
+				if(!(botonAumentar & 0x02) ){ // Presion bot?n 4
+					//genera un tiempo de espera de 250 ms
+					init_Delay(100);
+					current += 3600; // suma una hora al tiempo actual
+					day = ( current / 86400);
+					temp = ( current % 86400);
+					hour = temp / 3600;
+					temp = temp % 3600;
+					min = temp / 60;
+					seg = temp % 60;
+					
+					if(hour == 0){ 
+             current += 3600*24;
+           }			
+					}
+					wait_end_Delay();
+					mostrar_hora_min_seg(current);	
+					init_Delay(300);//inicia el sistick
+					wait_end_Delay();
+		}
+			if(!(GPIO_PORTD_DATA_R&0x02)){
+				break;
+>>>>>>> Configuracion
 			}
 			//if(){} boton programacion
 			//break;
@@ -109,29 +149,37 @@ int main(){
 	horaModificada = horaModificada + 60*5;
 	while(1){
 				init_Delay(250);
+<<<<<<< HEAD
 				int horaActual  =  TIMER0_TAR_R + horaModificada;
+=======
+				horaActual  =  TIMER0_TAR_R;
+>>>>>>> Configuracion
 				mostrar_hora_min_seg(horaActual);
-		
-				button_programer_mode= ~(GPIO_PORTD_DATA_R&0x02);//~(GPIO_PORTJ0<<1);
+				button_programer_mode= ~(GPIO_PORTJ0<<1);//~(GPIO_PORTJ0<<1);
+				//presion del boton para modo proframacion
 				if(button_programer_mode==0xFF){
 						flag_programmer_mode++;	
 					}else{
 						flag_programmer_mode=0;	
 					}
 					if(flag_programmer_mode==4){
-						flag_programmer_mode=0;
+						GPIO_PORTN1=0X02;//enciende el led que indica la entrada al modo programación
+						TIMER0_CTL_R &= ~TIMER_CTL_TAEN; //Apaga el timer de tiempo real
+						NVIC_ST_CTRL_R&=~NVIC_ST_CTRL_ENABLE;//apaga el Systick
+						
 						//////////Aqui pones tu funcion de programador/////////////////
+<<<<<<< HEAD
 						PortN_Output(0x01);
 						horaModificada += programarHora(horaActual);
 						//programarHora(&horaActual);
+=======
+						
+						programarHora(horaActual);
+						//salida del modo programador
+>>>>>>> Configuracion
 						TIMER0_CTL_R |= TIMER_CTL_TAEN; //Activacion del timer
-						if(flag==0)	{
-							GPIO_PORTN1=0X02;
-							flag=1;
-						}else{
-							GPIO_PORTN1=0X00;
-							flag=0;
-						}
+						flag_programmer_mode=0; //reinicia la bandera
+						GPIO_PORTN1=0X00;	//apaga el led que indica la salida del modo programador
 					}
 				wait_end_Delay();	
 	}
