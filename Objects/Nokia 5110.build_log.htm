@@ -50,32 +50,40 @@ main.c(9): warning:  #550-D: variable "day"  was set but never used
   		uint32_t day = 0, temp = 0;
 main.c(49): warning:  #550-D: variable "day"  was set but never used
   		uint32_t day = 0, temp = 0;
-main.c(188): warning:  #1-D: last line of file ends without a newline
+main.c(50): warning:  #177-D: variable "horasModificadas"  was declared but never referenced
+  		int horasModificadas=0, minutosModificados=0, segundoModificados = 0 ;
+main.c(50): warning:  #177-D: variable "minutosModificados"  was declared but never referenced
+  		int horasModificadas=0, minutosModificados=0, segundoModificados = 0 ;
+main.c(50): warning:  #177-D: variable "segundoModificados"  was declared but never referenced
+  		int horasModificadas=0, minutosModificados=0, segundoModificados = 0 ;
+main.c(192): warning:  #1-D: last line of file ends without a newline
   }
-main.c(149): warning:  #177-D: variable "hour"  was declared but never referenced
+main.c(152): warning:  #177-D: variable "hour"  was declared but never referenced
   	uint8_t hour = 0, min = 0, seg = 0, lastHour = 0, lastMin = 0, lastSeg = 0;
-main.c(149): warning:  #177-D: variable "min"  was declared but never referenced
+main.c(152): warning:  #177-D: variable "min"  was declared but never referenced
   	uint8_t hour = 0, min = 0, seg = 0, lastHour = 0, lastMin = 0, lastSeg = 0;
-main.c(149): warning:  #177-D: variable "seg"  was declared but never referenced
+main.c(152): warning:  #177-D: variable "seg"  was declared but never referenced
   	uint8_t hour = 0, min = 0, seg = 0, lastHour = 0, lastMin = 0, lastSeg = 0;
-main.c(149): warning:  #177-D: variable "lastHour"  was declared but never referenced
+main.c(152): warning:  #177-D: variable "lastHour"  was declared but never referenced
   	uint8_t hour = 0, min = 0, seg = 0, lastHour = 0, lastMin = 0, lastSeg = 0;
-main.c(149): warning:  #177-D: variable "lastMin"  was declared but never referenced
+main.c(152): warning:  #177-D: variable "lastMin"  was declared but never referenced
   	uint8_t hour = 0, min = 0, seg = 0, lastHour = 0, lastMin = 0, lastSeg = 0;
-main.c(149): warning:  #177-D: variable "lastSeg"  was declared but never referenced
+main.c(152): warning:  #177-D: variable "lastSeg"  was declared but never referenced
   	uint8_t hour = 0, min = 0, seg = 0, lastHour = 0, lastMin = 0, lastSeg = 0;
-main.c(150): warning:  #177-D: variable "day"  was declared but never referenced
+main.c(153): warning:  #177-D: variable "day"  was declared but never referenced
   	uint32_t day = 0, temp = 0, LastTIMER0_TAR_R = 0;
-main.c(150): warning:  #177-D: variable "temp"  was declared but never referenced
+main.c(153): warning:  #177-D: variable "temp"  was declared but never referenced
   	uint32_t day = 0, temp = 0, LastTIMER0_TAR_R = 0;
-main.c(150): warning:  #177-D: variable "LastTIMER0_TAR_R"  was declared but never referenced
+main.c(153): warning:  #177-D: variable "LastTIMER0_TAR_R"  was declared but never referenced
   	uint32_t day = 0, temp = 0, LastTIMER0_TAR_R = 0;
-main.c(151): warning:  #177-D: variable "current"  was declared but never referenced
+main.c(154): warning:  #177-D: variable "current"  was declared but never referenced
   	int current; //HORA ACTUAL
-main.c: 22 warnings, 0 errors
+main.c(158): warning:  #177-D: variable "horaActual"  was declared but never referenced
+  	int horaModificada=0,horaActual=0;
+main.c: 26 warnings, 0 errors
 linking...
-Program Size: Code=3012 RO-data=1528 RW-data=4 ZI-data=612  
-".\Objects\Nokia 5110.axf" - 0 Error(s), 22 Warning(s).
+Program Size: Code=3292 RO-data=1528 RW-data=4 ZI-data=612  
+".\Objects\Nokia 5110.axf" - 0 Error(s), 26 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -104,7 +112,7 @@ Package Vendor: Keil
       Include file:  Device\Include\TM4C129\TM4C129.h
       Source file:   Device\Source\ARM\startup_TM4C129.s
       Source file:   Device\Source\system_TM4C129.c
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
