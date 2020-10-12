@@ -48,43 +48,13 @@ int programarHora(int current){
 	//variables de timempo
 		uint8_t hour = 0, min = 0, seg = 0;
 		uint32_t day = 0, temp = 0;
-<<<<<<< HEAD
-		int horasModificadas=0, minutosModificados=0, segundoModificados = 0 ;
-		TIMER0_CTL_R &= ~TIMER_CTL_TAEN; //Apaga el timer
-=======
 		
->>>>>>> Configuracion
 				day = ( current / 86400);
 				temp = ( current % 86400);
 				hour = temp / 3600;
 				temp = temp % 3600;
 				min = temp / 60;
 				seg = temp % 60;	
-<<<<<<< HEAD
-		int botonAumentarHora  = GPIO_PORTJ_DATA_R & 0x02;
-		//int botonProgramarHora = GPIO_PORTJ_DATA_R & 0x01;
-		while(1){
-			int botonAumentarHora  = GPIO_PORTJ_DATA_R & 0x02; // bot�n 3
-			int botonProgramarHora = GPIO_PORTJ_DATA_R & 0x01;
-			if(botonAumentarHora){ // Presion bot?n 4
-				current = current - 1; // resta tiene error 85 hrs
-				day = ( current / 86400);
-				temp = ( current % 86400);
-				hour = temp / 3600;
-				temp = temp % 3600;
-				min = temp / 60;
-				seg = temp % 60; // [00:00:12] -> [86:27:12]
-				
-				//for(uint32_t n=0;n<Time;n++){}
-				limpiar_minutos();
-				for(uint32_t n=0;n<Time;n++){}
-				mostrar_minutos(min);
-				for(uint32_t n=0;n<Time;n++){}
-				mostrar_horas(hour);
-				mostrar_minutos(min);
-				mostrar_segundos(seg);
-					
-=======
 ///////////////////////////////////////////////////////////////////
 		while(1){
 			int selector = 0;
@@ -116,7 +86,6 @@ int programarHora(int current){
 		}
 			if(!(GPIO_PORTD_DATA_R&0x02)){
 				break;
->>>>>>> Configuracion
 			}
 			//if(){} boton programacion
 			//break;
@@ -149,11 +118,7 @@ int main(){
 	horaModificada = horaModificada + 60*5;
 	while(1){
 				init_Delay(250);
-<<<<<<< HEAD
-				int horaActual  =  TIMER0_TAR_R + horaModificada;
-=======
 				horaActual  =  TIMER0_TAR_R;
->>>>>>> Configuracion
 				mostrar_hora_min_seg(horaActual);
 				button_programer_mode= ~(GPIO_PORTJ0<<1);//~(GPIO_PORTJ0<<1);
 				//presion del boton para modo proframacion
@@ -168,15 +133,9 @@ int main(){
 						NVIC_ST_CTRL_R&=~NVIC_ST_CTRL_ENABLE;//apaga el Systick
 						
 						//////////Aqui pones tu funcion de programador/////////////////
-<<<<<<< HEAD
-						PortN_Output(0x01);
-						horaModificada += programarHora(horaActual);
-						//programarHora(&horaActual);
-=======
 						
 						programarHora(horaActual);
 						//salida del modo programador
->>>>>>> Configuracion
 						TIMER0_CTL_R |= TIMER_CTL_TAEN; //Activacion del timer
 						flag_programmer_mode=0; //reinicia la bandera
 						GPIO_PORTN1=0X00;	//apaga el led que indica la salida del modo programador
