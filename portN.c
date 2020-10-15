@@ -1,5 +1,5 @@
 #include <stdint.h>
-
+# 
 #define GPIO_PORTN1 				(*((volatile uint32_t *)0x40064008))// PARA ESCRIBIR EN el puerto N1
 
 #define GPIO_PORTN_AFSEL_R  (*((volatile uint32_t *)0x40064420)) //para contrOlarlo con los REGISTROS GPIO
@@ -12,7 +12,7 @@
 #define SYSCTL_PRGPIO_R 			(*((volatile uint32_t *)0x400FEA08)) // PARA VERIFICAR QUE LOS PUERTOS ESTEN ENCENDIDOS
 
 
-
+// configuracion de LEDs
 void configN(void){
 	SYSCTL_RCGCGPIO_R |=0X00001000; //HABILITA EL PUERTO N
 	while ((SYSCTL_PRGPIO_R&0X00001000)==0){};

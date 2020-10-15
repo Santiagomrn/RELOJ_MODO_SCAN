@@ -10,7 +10,7 @@
 #define SYSCTL_RCGCGPIO_R (*((volatile uint32_t *)0x400FE608)) //PARA CONFIGURAR ENCENDIDO DEL PUERTO
 #define SYSCTL_PRGPIO_R 			(*((volatile uint32_t *)0x400FEA08))
 	
-
+// configuración dos push boton TIVA 
 void configJ(void){
 	SYSCTL_RCGCGPIO_R |=0X0100; //HABILITA EL PUERTO J
 	while ((SYSCTL_PRGPIO_R&0X0100)==0){};
