@@ -222,8 +222,15 @@ void configurarPantallaNokia(){
 	Nokia5110_Init(); //Inicializacion del Nokia5110
 	LcdClear();       //limpia los carácteres nokia_5511
 }
-// 
-void CicloScan(){
+// Bandera global que se activa en interrupción 
+uint8_t flag=0;
+// Interrupción -> flag = 1;
+// void InterrupcionModoProgramador(){
+// 	flag = 1;
+// 	// Inicializar el systick
+// }
+
+void primerPlano(){
 	// Declaración de variables donde se almacenan las horas, minutos, segundos
 	uint8_t hour = 0, min = 0, seg = 0;
 	uint32_t day = 0, temp = 0;
@@ -234,7 +241,6 @@ void CicloScan(){
 	int horaModificada=0,horaActual=0;
 	// Variable que almacena 
 	uint8_t button_programer_mode=0;
-	uint8_t flag=0;
 	// Ciclo Scan
 	while(1){
 				// Se inicializa el systick y se arranca (no se espera a que termine)
@@ -248,6 +254,7 @@ void CicloScan(){
 				//presion del boton para modo proframacion
 				if(button_programer_mode==0xFF){
 						flag_programmer_mode++;	
+						// Se genera interrupción 
 					}else{
 						flag_programmer_mode=0;	
 					}
@@ -267,20 +274,21 @@ void CicloScan(){
 				wait_end_Delay();	// Espera a que se terminen 250 ms (con lo siguiente se aseguran los 250ms)
 	}
 }
-
 int main(){
 	// Módulo inicialización
-	inicializacionPuertos();
+	inicializacionPuertos();	
 	configurarRTC();
 	// Configurar Pantalla
 	configurarPantallaNokia();
 	// 
 	LcdClear(); //limpia LCD
+  	//********************************************************************************
+	//  Función para configurar y habilitar las interrupciones 
+	//	configurarInterrupcion();
+  	//********************************************************************************
 	//  Se establece un valor arbitrario del timer para que lo primero que se vea en la
 	//  pantalla sea la hora [23:59:59]
 	TIMER0_TAV_R = 3600*23 + 60*59 + 59 ;
-
 	// El programa se queda ejecutando el ciclo Scan 
-
-	CicloScan();
+	primerPlano(); 
 }
