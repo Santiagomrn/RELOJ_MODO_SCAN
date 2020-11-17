@@ -1,5 +1,5 @@
 #include <stdint.h>
-# 
+
 #define GPIO_PORTN1 				(*((volatile uint32_t *)0x40064008))// PARA ESCRIBIR EN el puerto N1
 
 #define GPIO_PORTN_AFSEL_R  (*((volatile uint32_t *)0x40064420)) //para contrOlarlo con los REGISTROS GPIO

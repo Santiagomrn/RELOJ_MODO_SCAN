@@ -371,7 +371,6 @@ WDT0_Handler\
                 EXPORT  WDT0_Handler [WEAK]
                 B       .
                 ENDP
-
 TIMER0A_Handler\
                 PROC
                 EXPORT  TIMER0A_Handler [WEAK]
@@ -566,8 +565,9 @@ EBI0_Handler\
                 
 GPIOJ_Handler\
                 PROC
+				IMPORT GPIOPortJ_Handler
                 EXPORT  GPIOJ_Handler [WEAK]
-                B       .
+                B       GPIOPortJ_Handler
                 ENDP
 
 GPIOK_Handler\
@@ -984,6 +984,21 @@ GPIOT_Handler\
                 B       .
                 ENDP
 
+				EXPORT DisableInterrupts
+				EXPORT EnableInterrupts
+				EXPORT WaitForInterrupt
+DisableInterrupts
+	CPSID I
+	BX LR
+		
+EnableInterrupts
+	CPSIE I
+	BX LR
+		
+WaitForInterrupt
+	WFI
+	BX LR
+	
 
                 ALIGN
 

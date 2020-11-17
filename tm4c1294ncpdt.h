@@ -240,7 +240,7 @@
 #define SSI3_CR0_R              (*((volatile uint32_t *)0x4000B000))
 #define SSI3_CR1_R              (*((volatile uint32_t *)0x4000B004))
 #define SSI3_DR_R               (*((volatile uint32_t *)0x4000B008))
-#define SSI3_SR_R               (*((volatile uint32_t *)0x4000B00C))
+#define SSI3_SR_R              (*((volatile uint32_t *)0x4000B00C))
 #define SSI3_CPSR_R             (*((volatile uint32_t *)0x4000B010))
 #define SSI3_IM_R               (*((volatile uint32_t *)0x4000B014))
 #define SSI3_RIS_R              (*((volatile uint32_t *)0x4000B018))

@@ -1,18 +1,18 @@
 Dependencies for Project 'Nokia 5110', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 5060750::V5.06 update 6 (build 750)::.\ARMCC
-F (.\main.c)(0x5F87C333)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\a_gar\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\a_gar\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C129-D__UVISION_VERSION="531" -D_RTE_ -DTM4C1294NCPDT -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (Nokia5110.c)(0x5F82993C)
+F (.\main.c)(0x5FB32136)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\a_gar\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\a_gar\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C129-D__UVISION_VERSION="531" -D_RTE_ -DTM4C1294NCPDT -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC82CCC)
-I (Nokia5110.h)(0x5F829873)
-I (tm4c1294ncpdt.h)(0x5F8244BB)
-I (portJ.c)(0x5F85F5B1)
-I (portN.c)(0x5F85F5B4)
-I (modoProgramacion.c)(0x5F83D958)
-F (.\modoProgramacion.c)(0x5F83D958)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\a_gar\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\a_gar\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C129-D__UVISION_VERSION="531" -D_RTE_ -DTM4C1294NCPDT -D_RTE_-o .\objects\modoprogramacion.o --omf_browse .\objects\modoprogramacion.crf --depend .\objects\modoprogramacion.d)
-I (tm4c1294ncpdt.h)(0x5F8244BB)
+I (Nokia5110.c)(0x5FB1738A)
+I (Nokia5110.h)(0x5FB051B6)
+I (tm4c1294ncpdt.h)(0x5FB1B8AF)
+I (portJ.c)(0x5FB1CA41)
+I (portN.c)(0x5FB059A8)
+I (modoProgramacion.c)(0x5FB051B6)
+F (.\modoProgramacion.c)(0x5FB051B6)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\a_gar\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\a_gar\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C129-D__UVISION_VERSION="531" -D_RTE_ -DTM4C1294NCPDT -D_RTE_-o .\objects\modoprogramacion.o --omf_browse .\objects\modoprogramacion.crf --depend .\objects\modoprogramacion.d)
+I (tm4c1294ncpdt.h)(0x5FB1B8AF)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC82CCC)
-F (RTE\Device\TM4C1294NCPDT\startup_TM4C129.s)(0x5F8244BB)(--cpu Cortex-M4.fp.sp --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_Target_1-IC:\Users\a_gar\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\a_gar\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C129--pd "__UVISION_VERSION SETA 531" --pd "_RTE_ SETA 1" --pd "TM4C1294NCPDT SETA 1" --pd "_RTE_ SETA 1"--list .\listings\startup_tm4c129.lst --xref -o .\objects\startup_tm4c129.o --depend .\objects\startup_tm4c129.d)
-F (RTE\Device\TM4C1294NCPDT\system_TM4C129.c)(0x5F8244BB)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\a_gar\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\a_gar\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C129-D__UVISION_VERSION="531" -D_RTE_ -DTM4C1294NCPDT -D_RTE_-o .\objects\system_tm4c129.o --omf_browse .\objects\system_tm4c129.crf --depend .\objects\system_tm4c129.d)
+F (RTE\Device\TM4C1294NCPDT\startup_TM4C129.s)(0x5FB1777E)(--cpu Cortex-M4.fp.sp --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_Target_1-IC:\Users\a_gar\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\a_gar\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C129--pd "__UVISION_VERSION SETA 531" --pd "_RTE_ SETA 1" --pd "TM4C1294NCPDT SETA 1" --pd "_RTE_ SETA 1"--list .\listings\startup_tm4c129.lst --xref -o .\objects\startup_tm4c129.o --depend .\objects\startup_tm4c129.d)
+F (RTE\Device\TM4C1294NCPDT\system_TM4C129.c)(0x5FB051B6)(--c99 --gnu -c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\a_gar\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IC:\Users\a_gar\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C129-D__UVISION_VERSION="531" -D_RTE_ -DTM4C1294NCPDT -D_RTE_-o .\objects\system_tm4c129.o --omf_browse .\objects\system_tm4c129.crf --depend .\objects\system_tm4c129.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC82CCC)
 I (C:\Users\a_gar\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C129\TM4C129.h)(0x530F5566)
 I (C:\Users\a_gar\AppData\Local\Arm\Packs\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C129\TM4C1294NCPDT.h)(0x530F5566)

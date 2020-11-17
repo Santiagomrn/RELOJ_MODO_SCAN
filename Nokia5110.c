@@ -318,7 +318,7 @@ void limpiar_segundos(void){
 	lcdwrite(COMMAND,0X40+2);            //Ubicamos el cursor el fila 16
 	Nokia5110_OutString("  ");
 }
-void Timer0A_Init(void)
+/*void Timer0A_Init(void)
 {											   //Modo Real Time Clock
 	SYSCTL_RCGCTIMER_R |= SYSCTL_RCGCTIMER_R0; //activa el reloj de timer 0
 	while ((SYSCTL_PRTIMER_R & SYSCTL_RCGCTIMER_R0) == 0)
@@ -328,19 +328,35 @@ void Timer0A_Init(void)
 	TIMER0_CTL_R &= ~TIMER_CTL_TAEN; //Apaga el timer
 	TIMER0_TAMR_R = 0;
 	TIMER0_CFG_R |= TIMER_CFG_32_BIT_RTC; //Configura para 32 bits en RTC
-	TIMER0_TAMATCHR_R = 0X0000;			  //Configura valor de coincidencia
-	TIMER0_TBMATCHR_R = 0X0000;
+	TIMER0_TAILR_R = 0xFFFFFFFF;
+	// TIMER0_TAMATCHR_R = 0X0002;			  //Configura valor de coincidencia
+	// TIMER0_TBMATCHR_R = 0X0000;
 
-	TIMER0_ICR_R |= TIMER_ICR_RTCCINT; //Input Clear Registro
+	TIMER0_ICR_R |= TIMER_ICR_RTCCINT; //Input Clear Registro (borrar bandera de desborde)
 	TIMER0_IMR_R |= TIMER_IMR_RTCIM;   //Mascara de interrupcion
 
-	NVIC_PRI4_R = (NVIC_PRI4_R & 0X0FFFFFFF) | 0X80000000; //prioridad 2
+	NVIC_PRI4_R = (NVIC_PRI4_R & 0X0FFFFFFF) | 0X00000000; //prioridad 2
 	NVIC_EN0_R |= 1 << 19;
 	// Para el debugger
 	// No se requieren interrupciones
 	TIMER0_CTL_R |= TIMER_CTL_TAEN; //Activacion del timer
+}*/
+
+void Timer0A_Init(void){								//Funcion para inicilizar Timer 0 A
+	SYSCTL_RCGCTIMER_R|=0x01;							//Activa timer 0
+	while((SYSCTL_PRTIMER_R&0x01)==0){};	//Compruebo si se activo el timer
+	TIMER0_CC_R|=0x00000001;							//Fuente de reloj alternativo
+	SYSCTL_ALTCLKCFG_R=0x00000000;				//Seleccionamos PIOSC
+	TIMER0_CTL_R|=~0x00000001;						//PASO 1: APAGO EL TIMER	
+	TIMER0_CFG_R=0x00000000;							//PASO 2: CONFIGURAMOS PARA 32 BITS	  
+	TIMER0_TAMR_R=0x00000002;							//PASO 3: CONFIGURAMOS EN MODO PERIODICO
+	//**************************************PASO 4: LO OMITIMOS
+	TIMER0_TAILR_R=16000000;							//PASO 5: CARGAMOS EL VALOR
+	TIMER0_ICR_R|=0X00000001;							//PASO 6. BORRO BANDERA
+	//**************************************PASO 7: ACTIVAMOS EL TIMER EN EL MAIN
+	TIMER0_IMR_R|=0x00000001;							//Activamos interrupcion del Timer A
+	NVIC_PRI4_R = (NVIC_PRI4_R & 0X0FFFFFFF) | 0X00000000; //prioridad 2
+	NVIC_EN0_R |= 1 << 19;
+	//NVIC_EN0_R|=0x00000;									//Activamos prioridad de la interrupcion 19
 }
-
-//
-
 

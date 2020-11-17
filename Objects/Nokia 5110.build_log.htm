@@ -21,8 +21,8 @@ Target DLL:      lmidk-agdi.dll V???
 Dialog DLL:      TCM.DLL V1.46.0.0
  
 <h2>Project:</h2>
-C:\Users\a_gar\OneDrive\Escritorio\STR\RTCSCAN\RELOJ_MODO_SCAN_TM4C1294NCPDT\Nokia 5110.uvprojx
-Project File Date:  10/11/2020
+C:\Users\a_gar\OneDrive\Escritorio\STR\Reloj Interrupt\RelojInterrupt\RELOJ_MODO_SCAN_TM4C1294NCPDT\Nokia 5110.uvprojx
+Project File Date:  11/14/2020
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
@@ -42,38 +42,40 @@ Nokia5110.c(293): warning:  #167-D: argument of type "unsigned char *" is incomp
   	Nokia5110_OutString(hora);
 Nokia5110.c(301): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *"
   	Nokia5110_OutString(hora);
-portJ.c(25): warning:  #1-D: last line of file ends without a newline
-  }
+portJ.c(61): warning:  #223-D: function "init_Delay" declared implicitly
+  		init_Delay(10);
+portJ.c(62): warning:  #223-D: function "wait_end_Delay" declared implicitly
+  		wait_end_Delay();
+portJ.c(76): warning:  #223-D: function "init_Delay" declared implicitly
+  		init_Delay(10);
+portJ.c(77): warning:  #223-D: function "wait_end_Delay" declared implicitly
+  		wait_end_Delay();
+portJ.c(103): warning:  #1-D: last line of file ends without a newline
+  init_Delay(1);*/
 portN.c(25): warning:  #1-D: last line of file ends without a newline
   }
-main.c(10): warning:  #550-D: variable "day"  was set but never used
+main.c(27): warning:  #550-D: variable "day"  was set but never used
   		uint32_t day = 0, temp = 0;
-main.c(49): warning:  #550-D: variable "min"  was set but never used
+main.c(39): warning:  #159-D: declaration is incompatible with previous "init_Delay"  (declared at line 61 of "portJ.c")
+  void init_Delay(uint32_t tiempo){
+main.c(49): warning:  #159-D: declaration is incompatible with previous "wait_end_Delay"  (declared at line 62 of "portJ.c")
+  void wait_end_Delay(){
+main.c(68): warning:  #223-D: function "DisableInterrupts" declared implicitly
+  		DisableInterrupts();
+main.c(69): warning:  #550-D: variable "min"  was set but never used
   		uint8_t hour = 0, min = 0, seg = 0;
-main.c(49): warning:  #550-D: variable "seg"  was set but never used
+main.c(69): warning:  #550-D: variable "seg"  was set but never used
   		uint8_t hour = 0, min = 0, seg = 0;
-main.c(50): warning:  #550-D: variable "day"  was set but never used
+main.c(70): warning:  #550-D: variable "day"  was set but never used
   		uint32_t day = 0, temp = 0;
-main.c(228): warning:  #177-D: variable "hour"  was declared but never referenced
-  	uint8_t hour = 0, min = 0, seg = 0;
-main.c(228): warning:  #177-D: variable "min"  was declared but never referenced
-  	uint8_t hour = 0, min = 0, seg = 0;
-main.c(228): warning:  #177-D: variable "seg"  was declared but never referenced
-  	uint8_t hour = 0, min = 0, seg = 0;
-main.c(229): warning:  #177-D: variable "day"  was declared but never referenced
-  	uint32_t day = 0, temp = 0;
-main.c(229): warning:  #177-D: variable "temp"  was declared but never referenced
-  	uint32_t day = 0, temp = 0;
-main.c(230): warning:  #177-D: variable "current"  was declared but never referenced
+main.c(339): warning:  #177-D: variable "current"  was declared but never referenced
   	int current; //HORA ACTUAL
-main.c(237): warning:  #177-D: variable "flag"  was declared but never referenced
-  	uint8_t flag=0;
-main.c(286): warning:  #1-D: last line of file ends without a newline
-  }
-main.c: 21 warnings, 0 errors
+main.c(341): warning:  #177-D: variable "horaActual"  was declared but never referenced
+  	int horaModificada=0,horaActual=0;
+main.c: 22 warnings, 0 errors
 linking...
-Program Size: Code=3344 RO-data=1528 RW-data=4 ZI-data=612  
-".\Objects\Nokia 5110.axf" - 0 Error(s), 21 Warning(s).
+Program Size: Code=3764 RO-data=1528 RW-data=536 ZI-data=608  
+".\Objects\Nokia 5110.axf" - 0 Error(s), 22 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -100,8 +102,8 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:1.0.0
       Source file:   Device\Source\system_TM4C129.c
-      Source file:   Device\Source\ARM\startup_TM4C129.s
       Include file:  Device\Include\TM4C129\TM4C129.h
+      Source file:   Device\Source\ARM\startup_TM4C129.s
 Build Time Elapsed:  00:00:02
 </pre>
 </body>
